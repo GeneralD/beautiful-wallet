@@ -7,7 +7,6 @@ exports.beautifulWallets = [
     { addressPattern: /^0x0{5}/i, description: "starts with 5 zeros", active: true },
     { addressPattern: /^0x000[0-9a-f]{32}000$/i, description: "lead and tail are 3 zeros", active: true },
     { addressPattern: /^0x[0369a-f]{40}$/i, description: "multiple of 3", active: true },
-    { addressPattern: /^0x[0369578a-f]{40}$/i, description: "hiyoki", active: true },
     { addressPattern: /^0x012345/i, description: "starts with number ascendant", active: true },
     { addressPattern: /456789^/i, description: "ends with number descendant", active: true },
     { addressPattern: /0{7}/i, description: "includes 7 zeros", active: true },
