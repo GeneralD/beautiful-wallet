@@ -8,7 +8,6 @@ const main = async () => {
     for (let i = 0; ; i++) {
         // Generate seed
         const mnemonic = Mnemonic.generate(randomBytes(32))
-        const phrase = mnemonic.phrase
         const seed = mnemonic.toSeed()
         // Build keys
         const masterKey = HDKey.parseMasterSeed(seed)
@@ -16,17 +15,17 @@ const main = async () => {
         const childKey = HDKey.parseExtendedKey(extendedPrivateKey)
         // Get wallet
         const wallet = childKey.derive("0")
-        const walletPublicKey = wallet.publicKey
-        const ethAddress = EthereumAddress.from(walletPublicKey).address
-        const btcAddress = BitcoinAddress.from(walletPublicKey).address
+        // Addresses
+        const ethAddress = EthereumAddress.from(wallet.publicKey).address
+        const btcAddress = BitcoinAddress.from(wallet.publicKey).address
 
         var beautiful: BeautifulWallet | undefined
         if (beautiful = beautifulWallets.find(w => w.active && w.addressPattern.exec(ethAddress))) {
             const csv = new ObjectsToCsv([{
-                phrase,
+                mnemonicPhrase: mnemonic.phrase,
                 privateKey: wallet.privateKey?.toString("hex"),
-                btcAddress: btcAddress,
-                ethAddress: EthereumAddress.checksumAddress(ethAddress),
+                bitcoinAddress: btcAddress,
+                ethereumAddress: EthereumAddress.checksumAddress(ethAddress),
                 description: beautiful.description,
             }])
             await csv.toDisk("./wallets.csv", { append: true })
