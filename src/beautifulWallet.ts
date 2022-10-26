@@ -26,7 +26,7 @@ export const beautifulWallets: BeautifulWallet[] = [
     { addressPattern: /^0x0000[0-9a-f]{32}0000$/i, description: "lead and tail are 4 zeros", active: true },
     { addressPattern: /^0x[0369a-f]{40}$/i, description: "multiple of 3", active: true },
     { addressPattern: /^0x0123456/i, description: "starts with number ascendant", active: true },
-    { addressPattern: /3456789^/i, description: "ends with number descendant", active: true },
+    { addressPattern: /^0xabcdef/i, description: "starts with alphabet ascendant", active: true },
     { addressPattern: /0{8}/i, description: "includes 8 zeros", active: true },
     { addressPattern: /1{8}/i, description: "includes 8 ones", active: true },
     { addressPattern: /2{8}/i, description: "includes 8 twos", active: true },
