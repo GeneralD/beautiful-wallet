@@ -1,36 +1,24 @@
-import { randomBytes } from 'crypto'
 import ObjectsToCsv from 'objects-to-csv'
-import { BitcoinAddress, EthereumAddress, HDKey, Mnemonic } from 'wallet.ts'
 
 import { BeautifulWallet, beautifulWallets } from './beautifulWallet'
+import CryptoWallet from './CryptoWallet'
 
 const main = async () => {
     for (let i = 0; ; i++) {
-        // Generate seed
-        const mnemonic = Mnemonic.generate(randomBytes(32))
-        const seed = mnemonic.toSeed()
-        // Build keys
-        const masterKey = HDKey.parseMasterSeed(seed)
-        const extendedPrivateKey = masterKey.derive("m/44'/60'/0'/0").extendedPrivateKey || ""
-        const childKey = HDKey.parseExtendedKey(extendedPrivateKey)
-        // Get wallet
-        const wallet = childKey.derive("0")
-        // Addresses
-        const ethAddress = EthereumAddress.from(wallet.publicKey).address
-        const btcAddress = BitcoinAddress.from(wallet.publicKey).address
+        const wallet = new CryptoWallet()
 
         var beautiful: BeautifulWallet | undefined
-        if (beautiful = beautifulWallets.find(w => w.active && w.addressPattern.exec(ethAddress))) {
+        if (beautiful = beautifulWallets.find(w => w.active && w.addressPattern.exec(wallet.ethereumAddress))) {
             const csv = new ObjectsToCsv([{
-                mnemonicPhrase: mnemonic.phrase,
-                privateKey: wallet.privateKey?.toString("hex"),
-                bitcoinAddress: btcAddress,
-                ethereumAddress: EthereumAddress.checksumAddress(ethAddress),
+                mnemonicPhrase: wallet.mnemonicPhrase,
+                privateKey: wallet.privateKey,
+                bitcoinAddress: wallet.bitcoinAddress,
+                ethereumAddress: wallet.ethereumAddress,
                 description: beautiful.description,
             }])
             await csv.toDisk("./wallets.csv", { append: true })
         }
-        console.log(`${i}:\t${ethAddress}`)
+        console.log(`${i}:\t${wallet.ethereumAddress}`)
     }
 }
 
