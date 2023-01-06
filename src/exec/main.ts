@@ -1,7 +1,7 @@
 import ObjectsToCsv from 'objects-to-csv'
 
 import { BeautifulWallet, beautifulWallets } from './beautifulWallet'
-import CryptoWallet from './CryptoWallet'
+import CryptoWallet from '../CryptoWallet'
 
 const main = async () => {
     for (let i = 0; ; i++) {

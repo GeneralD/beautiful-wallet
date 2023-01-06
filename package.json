@@ -18,10 +18,7 @@
     "yarn-run-all": "^3.1.1"
   },
   "scripts": {
-    "compile": "tsc -p .",
-    "start": "node build/main.js",
-    "test": "ts-node src/main.ts",
-    "bundle": "browserify build/*.js -o build/frontend/bundle.js",
-    "frontend": "npm-run-all -s compile bundle"
+    "start": "ts-node src/exec/main.ts",
+    "bundle": "tsc -p . && browserify build/*.js build/front/*.js -o build/bundle/all.js"
   }
 }
