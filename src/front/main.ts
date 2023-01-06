@@ -33,31 +33,22 @@ function accordionItemHTML(index: number, wallet: CryptoWallet, description: str
             <h2 class="accordion-header" id="heading${index}">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}"
                     aria-expanded="false" aria-controls="collapse${index}">
-                    #${index} ${wallet.ethereumAddress}
+                    <span class="badge rounded-pill bg-dark">#${index}</span>&nbsp;${wallet.ethereumAddress}
                 </button>
             </h2>
             <div id="collapse${index}" class="accordion-collapse collapse" aria-labelledby="heading${index}"
                 data-bs-parent="#beautifulWalletsAccordion">
                 <div class="accordion-body">
                     <strong class="text-uppercase">ethereum address</strong>
-                    <br />
-                    ${wallet.ethereumAddress}
-                    <br />
+                    <p class="font-monospace">${wallet.ethereumAddress}</p>
                     <strong class="text-uppercase">bitcoin address</strong>
-                    <br />
-                    ${wallet.bitcoinAddress}
-                    <br />
+                    <p class="font-monospace">${wallet.bitcoinAddress}</p>
                     <strong class="text-uppercase">private key</strong>
-                    <br />
-                    ${wallet.privateKey}
-                    <br />
+                    <p class="font-monospace">${wallet.privateKey}</p>
                     <strong class="text-uppercase">mnemonic phrase</strong>
-                    <br />
-                    ${wallet.mnemonicPhrase}
-                    <br />
+                    <p class="font-monospace">${wallet.mnemonicPhrase}</p>
                     <strong class="text-uppercase">beautiful reason</strong>
-                    <br />
-                    ${description}
+                    <p class="font-monospace">${description}</p>
                 </div>
             </div>
         </div>
