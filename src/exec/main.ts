@@ -1,14 +1,15 @@
 import ObjectsToCsv from 'objects-to-csv'
 
-import { BeautifulWallet, beautifulWallets } from './beautifulWallet'
 import CryptoWallet from '../CryptoWallet'
+import BeautifulWallet from '../BeautifulWallet'
+import { beautifulWallets } from './beautifulWallet'
 
 const main = async () => {
     for (let i = 0; ; i++) {
         const wallet = new CryptoWallet()
 
         var beautiful: BeautifulWallet | undefined
-        if (beautiful = beautifulWallets.find(w => w.active && w.addressPattern.exec(wallet.ethereumAddress))) {
+        if (beautiful = beautifulWallets.find(w => w.isAppropriate(wallet.ethereumAddress))) {
             const csv = new ObjectsToCsv([{
                 mnemonicPhrase: wallet.mnemonicPhrase,
                 privateKey: wallet.privateKey,
