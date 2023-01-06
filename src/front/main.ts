@@ -1,9 +1,11 @@
-import CryptoWallet from "../CryptoWallet"
-import { animationFrameScheduler, asyncScheduler, defer, filter, map, observeOn, of, repeat, share, subscribeOn } from "rxjs"
-import $ from "jquery"
-import BeautifulWallet from "../BeautifulWallet"
-import compactMap from "./compactMap"
-import filterNull from "./compactMap"
+import $ from 'jquery'
+import {
+    animationFrameScheduler, asyncScheduler, defer, map, observeOn, of, repeat, share, subscribeOn
+} from 'rxjs'
+
+import BeautifulWallet from '../BeautifulWallet'
+import CryptoWallet from '../CryptoWallet'
+import compactMap from './compactMap'
 
 const genWallet = defer(() => of(new CryptoWallet()))
 const walletStream = genWallet.pipe(

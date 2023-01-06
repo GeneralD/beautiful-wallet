@@ -1,4 +1,4 @@
-import { EMPTY, mergeMap, of, OperatorFunction } from "rxjs"
+import { EMPTY, mergeMap, of, OperatorFunction } from 'rxjs'
 
 export default function <T, R>(project: (value: T, index: number) => R | undefined | null): OperatorFunction<T, R> {
     return mergeMap((v, i) => {

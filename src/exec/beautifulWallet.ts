@@ -1,4 +1,4 @@
-import BeautifulWallet from "../BeautifulWallet"
+import BeautifulWallet from '../BeautifulWallet'
 
 export const beautifulWallets = [
     new BeautifulWallet(/^0x\d{40}$/i, "only numbers", true),
