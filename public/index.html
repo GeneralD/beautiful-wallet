@@ -11,23 +11,40 @@
 </head>
 
 <body>
-    <s class="addressStream"></s>
-
-    <table class="table">
-        <thead>
-            <tr class="text-uppercase">
-                <th scope="col">#</th>
-                <th scope="col">ethereum address</th>
-                <th scope="col">bitcoin address</th>
-                <th scope="col">secret key</th>
-                <th scope="col">mnemonic phrase</th>
-                <th scope="col">description</th>
-            </tr>
-        </thead>
-        <tbody class="beautifulWalletsTableBody">
-        </tbody>
-    </table>
+    <div class="accordion" id="beautifulWalletsAccordion">
+        <div id="flushWallet" class="accordion-item">
+            <h2 class="accordion-header" id="heading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                    #<s class="flushWalletIndex"></s>&nbsp;<s class="flushWalletEthereumAddress"></s>
+                </button>
+            </h2>
+            <div id="collapse" class="accordion-collapse collapse" aria-labelledby="heading"
+                data-bs-parent="#beautifulWalletsAccordion">
+                <div class="accordion-body">
+                    <strong class="text-uppercase">ethereum address</strong>
+                    <br />
+                    <s class="flushWalletEthereumAddress"></s>
+                    <br />
+                    <strong class="text-uppercase">bitcoin address</strong>
+                    <br />
+                    <s class="flushWalletBitcoinAddress"></s>
+                    <br />
+                    <strong class="text-uppercase">private key</strong>
+                    <br />
+                    <s class="flushWalletPrivateKey"></s>
+                    <br />
+                    <strong class="text-uppercase">mnemonic phrase</strong>
+                    <br />
+                    <s class="flushWalletMnemonicPhrase"></s>
+                    <br />
+                    <strong class="text-uppercase">beautiful reason</strong>
+                    <br />
+                    ??????????
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
-<!-- new BeautifulWallet(/^0x0{7}/i, "starts with 7 zeros", true), -->
 
 </html>
