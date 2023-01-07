@@ -10,6 +10,6 @@ export default class {
     }
 
     isAppropriate(address: string): boolean {
-        return this.active && !!this.addressPattern.exec(address)
+        return this.active && this.addressPattern.test(address)
     }
 }

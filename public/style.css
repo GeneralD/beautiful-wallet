@@ -1,0 +1,42 @@
+.walletValue {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.noNft .lockedContents {
+    color: transparent;
+    text-shadow: 0 0 7px rgba(0, 0, 0, 1);
+    user-select: none;
+}
+
+.navbarTitle {
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+.neonText {
+    animation: flicker 1.5s infinite alternate;
+    color: #fff;
+    --flicker-flash-color: #0fa;
+}
+
+@keyframes flicker {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        text-shadow: 0 0 0.08rem #fff, 0 0 0.22rem #fff, 0 0 0.38rem #fff,
+            0 0 0.8rem var(--flicker-flash-color),
+            0 0 1.6rem var(--flicker-flash-color),
+            0 0 1.8rem var(--flicker-flash-color), 0 0 2rem var(--flicker-flash-color),
+            0 0 3rem var(--flicker-flash-color);
+    }
+
+    20%,
+    24%,
+    55% {
+        text-shadow: none;
+    }
+}

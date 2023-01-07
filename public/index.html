@@ -1,43 +1,68 @@
 <html>
+<!--
+    PLEASE, PLEASE DON'T CHEAT MAN!
+    I know you are reading runtime DOM by using the developer tool.
+    This service works completely dependent only on the frontend (on your machine).
+    It is also to protect the privacy of the private keys your machine generated.
+    If you find this tool useful, please get a NFT to unlock this contents!
+
+    Yumenosuke, Nexum CEO.
+-->
 
 <head>
+    <title>Beautiful Wallet</title>
+    <!-- Bootstrap -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Montserrat+Subrayada:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Common -->
     <script src="../build/bundle/all.js" type="text/javascript"></script>
+    <link href="style.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark bg-gradient">
+<body class="bg-dark bg-gradient noNft">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <span class="text-uppercase navbarTitle neonText">🎸Lucky Wallets🚀</span>
+            </a>
+            <input class="connect-wallet-button btn btn-outline-secondary" type="button" value="Connect 👛">
+        </div>
+    </nav>
     <div class="container-fluid my-3">
         <div class="accordion" id="beautifulWalletsAccordion">
             <div id="flushWallet" class="accordion-item">
                 <h2 class="accordion-header" id="heading">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
-                        <span class="badge rounded-pill bg-dark">#<span class="flushWalletIndex"></span></span>
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse"
+                        aria-expanded="true" aria-controls="collapse">
+                        <span class="badge rounded-pill bg-dark">#<span class="index"></span></span>
                         &nbsp;
-                        <span class="flushWalletEthereumAddress"></span>
+                        <span class="walletValue ethereumAddress text-truncate"></span>
                     </button>
                 </h2>
-                <div id="collapse" class="accordion-collapse collapse" aria-labelledby="heading"
+                <div id="collapse" class="accordion-collapse collapse show" aria-labelledby="heading"
                     data-bs-parent="#beautifulWalletsAccordion">
                     <div class="accordion-body">
-                        <strong class="text-uppercase">ethereum address</strong>
-                        <p class="font-monospace flushWalletEthereumAddress"></p>
-                        <strong class="text-uppercase">bitcoin address</strong>
-                        <p class="font-monospace flushWalletBitcoinAddress"></p>
-                        <strong class="text-uppercase">private key</strong>
-                        <p class="font-monospace flushWalletPrivateKey"></p>
-                        <strong class="text-uppercase">mnemonic phrase</strong>
-                        <p class="font-monospace flushWalletMnemonicPhrase"></p>
-                        <strong class="text-uppercase">beautiful reason</strong>
-                        <p class="font-monospace">??????????</p>
+                        <strong class="walletKey text-uppercase">ethereum address</strong>
+                        <p class="walletValue ethereumAddress text-break"></p>
+                        <strong class="walletKey text-uppercase">bitcoin address</strong>
+                        <p class="walletValue bitcoinAddress text-break"></p>
+                        <strong class="walletKey text-uppercase">private key</strong>
+                        <p class="walletValue privateKey text-break"></p>
+                        <strong class="walletKey text-uppercase">mnemonic phrase</strong>
+                        <p class="walletValue mnemonicPhrase text-break"></p>
+                        <strong class="walletKey text-uppercase">beautiful reason</strong>
+                        <p class="walletValue description text-break">??????????</p>
                     </div>
                 </div>
             </div>
