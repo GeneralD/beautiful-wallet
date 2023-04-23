@@ -61,14 +61,8 @@ export default class {
                 this.onmintfail?.(".error-text-metamask-not-ready")
             else if (e.message.includes("insufficient funds"))
                 this.onmintfail?.(".error-text-not-enough-eth")
-            else if (e.message.includes("invalid merkle proof"))
-                this.onmintfail?.(".error-text-not-allowlisted")
-            else if (e.message.includes("allowlist mint: paused"))
-                this.onmintfail?.(".error-text-minting-paused")
             else if (e.message.includes("execution reverted"))
                 this.onmintfail?.(".error-text-execution-reverted")
-            else if (e.message.includes("invalid quantity"))
-                this.onmintfail?.(".error-text-invalid-quantity")
             else
                 this.onmintfail?.(".error-text-unknown-error")
             return false
